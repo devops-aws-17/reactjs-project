@@ -10,8 +10,7 @@ on:
         default: 'build' 
     
 
-jobs:
-
+jobs: 
   build:
 
     runs-on: ubuntu-latest
