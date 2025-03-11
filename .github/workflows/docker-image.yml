@@ -1,17 +1,8 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   workflow_dispatch:
-    inputs:
-      pipeline:
-        description: 'Select custom pipeline to run (build, deploy, etc.)'
-        required: true
-        default: 'build'
-        type: string
+    
 
 jobs:
 
