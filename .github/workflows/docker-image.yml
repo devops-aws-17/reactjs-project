@@ -4,10 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       job:
-        description: 'Select the job to run (build, build-dev, deploy-prod, rollback-dev, rollback-prod)'
+        description: 'Select the job to run'
         required: true
-        type: string
-        default: 'build' 
+        type: choice
+        options:
+          - build
+          - build-dev
     
 
 jobs: 
@@ -20,7 +22,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
   build-dev:
-    needs: build
 
     runs-on: ubuntu-latest
 
