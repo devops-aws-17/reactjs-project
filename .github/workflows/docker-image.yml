@@ -12,9 +12,8 @@ on:
           - build-dev
     
 
-jobs: 
-  custom: 
-    build:
+jobs:  
+  build:
 
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.job == 'build' }}
