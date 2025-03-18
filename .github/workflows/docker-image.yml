@@ -3,13 +3,14 @@ name: Docker Image CI
 on:
   workflow_dispatch:
     inputs:
-      job:
-        description: 'Select the job to run'
+      pipeline:
+        description: 'Pipeline to run'
         required: true
-        type: choice
+        default: 'build'
         options:
           - build
           - build-dev
+
     
 
 jobs:  
