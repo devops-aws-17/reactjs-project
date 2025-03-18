@@ -3,10 +3,6 @@ name: Docker Image CI
 on:
   workflow_dispatch:
     inputs:
-      branch:
-        description: 'Branch to deploy'
-        required: true
-        default: 'test'
       job:
         description: 'Select the job to run'
         required: true
