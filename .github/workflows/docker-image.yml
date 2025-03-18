@@ -3,29 +3,29 @@ name: Docker Image CI
 on:
   workflow_dispatch:
     inputs:
-      pipeline:
-        description: 'Select custom pipeline to run (build, deploy, etc.)'
+      job:
+        description: 'Select the job to run'
         required: true
-        default: 'build'
-        type: string
+        type: choice
+        options:
+          - build
+          - build-dev
+    
 
-jobs:
-
+jobs:  
   build:
 
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.inputs.job == 'build' }}
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-
-  build-deploy:
+  build-dev:
 
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.inputs.job == 'build-dev' }}
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-
