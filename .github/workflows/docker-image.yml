@@ -17,7 +17,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.job == 'build' }}
+    if: ${{ github.event.inputs.pipeline == 'build' }}
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
@@ -25,7 +25,7 @@ jobs:
   build-dev:
 
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.job == 'build-dev' }}
+    if: ${{ github.event.inputs.pipeline == 'build-dev' }}
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
