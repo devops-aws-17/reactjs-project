@@ -6,7 +6,7 @@ on:
       pipeline:
         description: 'Pipeline to run'
         required: true
-        default: 'all'
+        type: choice
         options:
           - build
           - build-dev
