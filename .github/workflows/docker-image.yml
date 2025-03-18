@@ -10,7 +10,7 @@ on:
         options:
           - build
           - build-dev
-          - all
+        
 
     
 
@@ -18,7 +18,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.pipeline == 'build' || github.event.inputs.pipeline == 'all' }}
+    if: ${{ github.event.inputs.pipeline == 'build' }}
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
@@ -26,7 +26,7 @@ jobs:
   build-dev:
 
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.pipeline == 'build-dev' || github.event.inputs.pipeline == 'all' }}
+    if: ${{ github.event.inputs.pipeline == 'build-dev' }}
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
