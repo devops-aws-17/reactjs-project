@@ -25,7 +25,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: |
-        echo "${GITHUB_Deploy}"
+        export DOCKER_IMAGE="${GITHUB_Deploy}"
+        echo "${DOCKER_IMAGE}"
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
   build-dev:
 
