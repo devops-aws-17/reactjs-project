@@ -1,28 +1,31 @@
 import axios from 'axios';
 
-const EMPLOYEE_API_BASE_URL = "http://43.205.239.227:8080/api/v1/employees";
+const EMPLOYEE_API_BASE_URL = "http://10.0.3.14:8080/api/v1/employees";
 
 class EmployeeService {
 
-    getEmployees(){
+    getEmployees() {
         return axios.get(EMPLOYEE_API_BASE_URL);
     }
 
-    createEmployee(employee){
+    createEmployee(employee) {
         return axios.post(EMPLOYEE_API_BASE_URL, employee);
     }
 
-    getEmployeeById(employeeId){
-        return axios.get(EMPLOYEE_API_BASE_URL + '/' + employeeId);
+    getEmployeeById(employeeId) {
+        return axios.get(`${EMPLOYEE_API_BASE_URL}/${employeeId}`);
     }
 
-    updateEmployee(employee, employeeId){
-        return axios.put(EMPLOYEE_API_BASE_URL + '/' + employeeId, employee);
+    updateEmployee(employee, employeeId) {
+        return axios.put(`${EMPLOYEE_API_BASE_URL}/${employeeId}`, employee);
     }
 
-    deleteEmployee(employeeId){
-        return axios.delete(EMPLOYEE_API_BASE_URL + '/' + employeeId);
+    deleteEmployee(employeeId) {
+        return axios.delete(`${EMPLOYEE_API_BASE_URL}/${employeeId}`);
     }
 }
 
-export default new EmployeeService()
+// Named instance to satisfy ESLint
+const employeeService = new EmployeeService();
+
+export default employeeService;
